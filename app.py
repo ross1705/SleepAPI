@@ -6,7 +6,13 @@ from flask_cors import CORS
 from sklearn.linear_model import LinearRegression
 from flask import render_template
 from flask import Flask, request, jsonify, render_template, send_from_directory
-
+import numpy as np
+import pandas as pd
+from pandas import DataFrame, Series
+from matplotlib import pyplot as plt
+import seaborn as sns
+import statsmodels.api as sm
+from sklearn import linear_model
 
 app = Flask(__name__)
 CORS(app)
