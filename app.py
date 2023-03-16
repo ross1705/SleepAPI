@@ -1,18 +1,9 @@
-from flask import Flask, request, jsonify
-from flask_restful import Resource, Api
-import pickle
-import pandas as pd
+from flask import Flask, send_from_directory
+from flask_restful import Api, Resource
 from flask_cors import CORS
-from sklearn.linear_model import LinearRegression
-from flask import render_template
-from flask import Flask, request, jsonify, render_template, send_from_directory
-import numpy as np
 import pandas as pd
-from pandas import DataFrame, Series
-from matplotlib import pyplot as plt
-import seaborn as sns
-import statsmodels.api as sm
-from sklearn import linear_model
+import pickle
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -34,10 +25,9 @@ class SleepEfficiencyPrediction(Resource):
 api.add_resource(SleepEfficiencyPrediction, '/prediction/<int:phone_usage_minutes>')
 
 @app.route('/')
-@app.route('/')
 def index():
     return send_from_directory('.', 'index.html')
 
-
 if __name__ == '__main__':
-    app.run(debug=True, port=5018)
+    port = int(os.environ.get('PORT', 5019))
+    app.run(debug=True, host='0.0.0.0', port=port)
