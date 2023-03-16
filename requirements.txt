@@ -5,7 +5,7 @@ anaconda-project==0.8.3
 aniso8601==9.0.1
 applaunchservices==0.2.1
 argh==0.26.2
-astroid @ file:///opt/concourse/worker/volumes/live/21fd14a9-2a7e-484b-7394-5a9912cdcf80/volume/astroid_1592498459180/work
+astroid==2.9.3
 astropy==4.0.2
 async-generator==1.10
 atomicwrites==1.4.0
