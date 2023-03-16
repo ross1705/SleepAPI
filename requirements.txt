@@ -11,7 +11,7 @@ async-generator==1.10
 atomicwrites==1.4.0
 attrs==20.3.0
 autopep8==1.6.0
-Babel @ file:///tmp/build/80754af9/babel_1605108370292/work
+Babel==2.12.1
 backcall==0.2.0
 backports.functools-lru-cache==1.6.1
 backports.shutil-get-terminal-size==1.0.0
