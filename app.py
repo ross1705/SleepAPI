@@ -14,11 +14,11 @@ class SleepEfficiencyPrediction(Resource):
         phone_usage_minutes = [int(phone_usage_minutes)]
         df = pd.DataFrame(phone_usage_minutes, columns=['night time phone usage / day (minutes)'])
 
-        # Load the trained model from the file
-        with open("trained_model.pkl", "rb") as file:
-            lr = pickle.load(file)
+        # Load the trained Random Forest model from the file
+        with open("trained_model_rf.pkl", "rb") as file:
+            rf_regressor = pickle.load(file)
 
-        prediction = lr.predict(df)
+        prediction = rf_regressor.predict(df)
         prediction = int(prediction[0])
         return str(prediction)
 
