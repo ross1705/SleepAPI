@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Efficiency Predictor</title>
+</head>
+<body>
+    <h1>Sleep Efficiency Predictor</h1>
+    <form id="prediction-form">
+        <label for="night_time_phone_usage">Night Time Phone Usage (minutes):</label>
+        <input type="number" id="night_time_phone_usage" name="night_time_phone_usage" required>
+        <button type="submit">Predict Sleep Efficiency</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('prediction-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const nightTimePhoneUsage = document.getElementById('night_time_phone_usage').value;
+            const response = await fetch(`/prediction/${nightTimePhoneUsage}`);
+            const sleepEfficiency = await response.text();
+            document.getElementById('result').innerText = `Predicted Sleep Efficiency: ${sleepEfficiency}%`;
+        });
+    </script>
+</body>
+</html>
